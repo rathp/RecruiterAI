@@ -1,0 +1,22 @@
+Chewy is growing! Are you passionate about harnessing data to drive strategic business decisions? Do you grow with building innovative forecasting models that directly influence a company’s bottom line? If so, Chewy is looking for a Data Scientist III with expertise in financial forecasting to join our Merchandising Data Science Team and help shape the future of financial analysis and decision-making within the organization. In this role, you will combine deep understanding of machine learning, advanced data analysis, and statistical testing to predict trends and outcomes. You will work closely with finance, business, and cross functional teams to develop, implement, and refine predictive models that drive strategic decision-making and operational efficiency across the business. Does this sound like you? If so, we would love to hear from you!
+
+What you'll do:
+• Design, develop, and implement advanced predictive learning models for financial forecasting, including revenue, expenditure, cash flow, and other key financial metrics.
+• Analyze large financial datasets to identify trends, correlations, and actionable insights that influence financial planning and performance.
+• Research and implement innovative forecasting algorithms to generate accurate financial forecasts and projections.
+• Oversee data collection, cleansing, and validation processes to ensure data integrity and reliability.
+• Work cross-functionally with finance, business, and product teams to understand business requirements and deliver actionable insights that drive financial strategy.
+• Document code, algorithms, and processes to facilitate knowledge sharing and ensure reproducibility.
+• Effectively communicate complex technical concepts and insights to both technical and non-technical partners.
+
+What you'll need:
+• Candidate must possess a Graduate Degree (MS/PhD or equivalent experience) in Data Science, Machine Learning, Statistics, Mathematics, or related field.
+• Validated experience in developing advanced machine learning models with a focus on financial forecasting, financial modeling, or similar domains.
+• Strong experience with time series analysis, regression models, and machine learning algorithms for financial predictions.
+• Expertise in programming languages such as Python.
+• Advanced proficiency with SQL
+• Proficiency with version control systems (e.g., Git) and joint coding practices.
+• Good understanding of cloud platforms such as AWS.
+• Strong problem-solving skills and the ability to work independently and in a fast-paced environment.
+• Excellent oral and written communication skills including the ability to communicate effectively with both technical and non-technical partners.
+• Ability to travel up to 10% of the time
