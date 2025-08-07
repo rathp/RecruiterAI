@@ -2,6 +2,26 @@
 
 **RecruiterAI** is Aberdeen’s internal GenAI-powered recruitment assistant that automates resume screening, interview question generation, calendar scheduling, and candidate communication — all through an intuitive web interface. By combining the power of large language models (LLMs), **LangChain**, and **retrieval-augmented generation (RAG)**, this tool accelerates recruiter workflows with smart, contextual, and explainable recommendations.
 
+<!-- RecruiterAI Screenshots -->
+<div align="center">
+  <table>
+    <tr>
+      <td>
+        <img src="/RecruiterAIBestMatches.png" alt="Best Matches" width="350"/>
+      </td>
+      <td>
+        <img src="/RecruiterAIGenerateQuestions.png" alt="Generate Questions" width="350"/>
+      </td>
+    </tr>
+    <tr>
+      <td colspan="2" align="center">
+        <img src="/RecruiterAIHomePage.png" alt="Home Page" width="500"/>
+      </td>
+    </tr>
+  </table>
+</div>
+
+
 ---
 
 ## ✨ Features
