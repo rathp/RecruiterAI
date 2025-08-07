@@ -7,20 +7,19 @@
   <table>
     <tr>
       <td>
-        <img src="/RecruiterAIBestMatches.png" alt="Best Matches" width="350"/>
+        <img src="./frontend/screenshots/RecruiterAIBestMatches.png" alt="Best Matches" width="350"/>
       </td>
       <td>
-        <img src="/RecruiterAIGenerateQuestions.png" alt="Generate Questions" width="350"/>
+        <img src="./frontend/screenshots/RecruiterAIGenerateQuestions.png" alt="Generate Questions" width="350"/>
       </td>
     </tr>
     <tr>
       <td colspan="2" align="center">
-        <img src="/RecruiterAIHomePage.png" alt="Home Page" width="500"/>
+        <img src="./frontend/screenshots/RecruiterAIHomePage.png" alt="Home Page" width="500"/>
       </td>
     </tr>
   </table>
 </div>
-
 
 ---
 
