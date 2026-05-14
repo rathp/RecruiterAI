@@ -1,11 +1,11 @@
-# 🤖 RecruiterAI
+# RecruiterAI
 
-**RecruiterAI** is Aberdeen’s internal GenAI-powered recruitment assistant that automates resume screening, interview question generation, calendar scheduling, and candidate communication — all through an intuitive web interface. By combining the power of large language models (LLMs), **LangChain**, and **retrieval-augmented generation (RAG)**, this tool accelerates recruiter workflows with smart, contextual, and explainable recommendations.
+**RecruiterAI** is Aberdeen's internal GenAI-powered recruitment assistant that automates resume screening, interview question generation, calendar scheduling, and candidate communication — all through an intuitive web interface. By combining large language models (LLMs), **LangChain**, and **retrieval-augmented generation (RAG)**, this tool accelerates recruiter workflows with smart, contextual, and explainable recommendations.
 
 <!-- RecruiterAI Screenshots -->
 <div align="center">
   <table>
-      <tr>
+    <tr>
       <td colspan="2" align="center">
         <img src="./frontend/screenshots/RecruiterAIHomePage.png" alt="Home Page" width="500"/>
       </td>
@@ -23,118 +23,137 @@
 
 ---
 
-## ✨ Features
+## Features
 
-- 🔍 AI-powered matching of resumes to job descriptions using vector search and semantic retrieval  
-- 🧠 LLM-generated interview questions tailored to each candidate and job role  
-- 💡 Concise, human-readable fit summaries powered by prompt engineering  
-- 📅 Google Calendar-based interview scheduling between candidate and recruiter  
-- ✉️ Automated welcome email for selected candidates *(coming soon)*
-
----
-
-## 🛠️ Tech Stack
-
-### 🧩 Frontend – `React + Vite`
-- React 18 with Hooks  
-- Axios for async API requests  
-- Local state-driven UI interactions  
-
-### ⚙️ Backend – `FastAPI + LangChain`
-- `FastAPI` – Python async web API framework  
-- `PyMuPDF` – PDF parsing from resumes  
-- `LangChain` – Semantic search and RAG pipeline for resume matching  
-- `FAISS` – In-memory vector database for document retrieval  
-- `OpenAI` – GPT-4o for question generation and fit summaries  
-- `RecursiveCharacterTextSplitter` – For chunking long documents into semantically meaningful vectors  
+- AI-powered resume-to-job-description matching via vector search and semantic retrieval
+- LLM-generated interview questions tailored to each candidate and role
+- Concise fit summaries powered by prompt-engineered GPT-4o completions
+- Google Calendar-based interview scheduling *(placeholder — Calendar API integration pending)*
+- Automated welcome email for selected candidates *(placeholder — Gmail API integration pending)*
 
 ---
 
-## 🧠 GenAI & RAG Integration
+## Tech Stack
 
-RecruiterAI leverages **LangChain’s RetrievalQA chain** with **FAISS vector search** to semantically compare candidate resumes against the job description in a **retrieval-augmented generation (RAG)** framework. Top-matching candidates are surfaced using vector similarity, and then **prompt-engineered GPT-4 completions** generate:
+### Frontend — `React + Vite`
 
-- ✅ Concise **1–2 sentence summaries** of why each applicant is a good fit  
-- ❓ **5–6 contextual interview questions** aligned with the job role and resume  
+- React 18 with Hooks
+- TypeScript 5
+- Tailwind CSS for styling
+- Axios for async API requests
 
-To enable these features, store your OpenAI API key in the backend `.env` file:
+### Backend — `FastAPI + LangChain`
 
-```env
-OPENAI_API_KEY=sk-...
-```
+- `FastAPI` — Python async web API framework
+- `PyMuPDF` (`fitz`) — PDF text extraction from resumes
+- `LangChain` — RAG pipeline using `RetrievalQA` and `OpenAIEmbeddings`
+- `FAISS` — In-memory vector store for document retrieval
+- `RecursiveCharacterTextSplitter` — Chunks long resumes into semantically meaningful segments
+- `OpenAI GPT-4o` — Generates fit summaries and tailored interview questions
+- `google-api-python-client` — Google Calendar and Gmail integration (scaffolded)
+
 ---
 
-## 🚀 Run Locally
+## GenAI & RAG Pipeline
 
-Follow these steps to run RecruiterAI on your local machine.
+RecruiterAI uses **LangChain's `RetrievalQA` chain** with **FAISS vector search** to semantically compare uploaded resumes against a job description. Top-matching candidates are surfaced by cosine similarity, then **GPT-4o completions** generate:
 
-### 1. Clone the Repository
+- **1–2 sentence fit summaries** explaining why each candidate matches the role
+- **5 contextual interview questions** tailored to the candidate's resume and the job description
+
+Resume text is chunked with `RecursiveCharacterTextSplitter` (chunk size 500, overlap 100) before being embedded via `OpenAIEmbeddings` and indexed in FAISS.
+
+---
+
+## Run Locally
+
+### Prerequisites
+
+- Python 3.10+
+- Node.js 18+
+- An OpenAI API key (see [How to Get an OpenAI API Key](#how-to-get-an-openai-api-key))
+
+### 1. Clone the repository
 
 ```bash
 git clone https://github.com/your-org/recruiterai.git
 cd recruiterai
 ```
 
-### 2. Configure backend
+### 2. Set up the backend
 
 ```bash
-cd backend
 python -m venv venv
 source venv/bin/activate      # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-### 3. Enter your OpenAPI key in .env file
-If you don’t have one yet, follow the instructions in the [🔑 How to Get an OpenAI API Key](#-how-to-get-an-openai-api-key) section.
+### 3. Configure environment variables
 
-```bash
-echo "OPENAI_API_KEY=sk-xxxxxxxx" > .env
+Create a `.env` file inside the `backend/` directory:
+
+```env
+OPENAI_API_KEY=sk-your-key-here
 ```
 
-### Start backend
+### 4. Start the backend
+
 ```bash
+cd backend
 uvicorn main:app --reload
 ```
 
-### Start Frontend to launch locally
+The API will be available at `http://localhost:8000`.
+
+### 5. Start the frontend
+
+In a separate terminal:
+
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-## 🔑 How to Get an OpenAI API Key
+The UI will be available at `http://localhost:5173`.
 
-To use the GenAI features (resume summaries, question generation), you'll need an OpenAI API key.
+---
 
+## How to Get an OpenAI API Key
 
-### Steps to Generate an API Key:
-
-1. Go to the OpenAI platform: [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys)
-
+1. Go to [https://platform.openai.com/account/api-keys](https://platform.openai.com/account/api-keys).
 2. Log in or create a free account.
-
 3. Click **"Create new secret key"**.
+4. Copy the generated key (starts with `sk-`). You won't be able to see it again, so store it securely.
+5. Add it to `backend/.env` as shown in step 3 above.
 
-4. Copy the generated key (starts with `sk-...`).  
-   ⚠️ **You won't be able to see it again**, so store it securely.
+---
 
-5. Create a `.env` file in your `/backend` directory and add:
+## Folder Structure
 
-   ```env
-   OPENAI_API_KEY=sk-your-key-here
-
-
-### Folder structure
-```bash
-recruiterai/
-├── backend/                 # FastAPI + LangChain + OpenAI logic
-│   ├── resume_matcher.py    # Core matching logic and RAG pipeline
-│   └── .env                 # API keys and secrets
-├── frontend/                # React + Vite frontend
-│   └── App.tsx              # Interactive UI logic
 ```
-
-
-
-
+recruiterai/
+├── requirements.txt             # Python dependencies
+├── backend/
+│   ├── main.py                  # Uvicorn entry point
+│   ├── resume_matcher.py        # RAG pipeline, /match_resumes and /generate_questions endpoints
+│   ├── scheduler.py             # /schedule_interview endpoint (Google Calendar placeholder)
+│   ├── emailer.py               # /send_welcome_email endpoint (Gmail placeholder)
+│   ├── .env                     # API keys (not committed)
+│   └── data/
+│       ├── job_description.txt  # Sample job description
+│       └── resumes/             # Sample candidate PDFs
+└── frontend/
+    ├── index.html
+    ├── src/
+    │   ├── App.tsx              # Root component and routing logic
+    │   ├── main.tsx             # React entry point
+    │   └── components/
+    │       ├── JobDescriptionInput.tsx
+    │       ├── UploadResumes.tsx
+    │       ├── CandidateSelector.tsx
+    │       ├── InterviewScheduler.tsx
+    │       └── FinalDecision.tsx
+    └── public/
+        └── AberdeenLogo.png
+```
