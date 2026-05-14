@@ -1,4 +1,5 @@
-from resume_matcher import app  # just imports the app for uvicorn
+from resume_matcher import app  # base FastAPI app
+import agent  # registers /agent/chat route on app
 
 # To run locally:
-# uvicorn main:app --reload
+# cd backend && uvicorn main:app --reload
